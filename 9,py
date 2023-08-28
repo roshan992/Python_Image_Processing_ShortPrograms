@@ -1,0 +1,10 @@
+import cv2
+import numpy as np
+
+img =cv2.imread("C:\\images\\a1.jpg",1)
+r,c,ch=img.shape
+matrix_trans=np.float32([[1,0.5,-100],[0.6,1,-30]])
+timg=cv2.warpAffine(img, matrix_trans,(c,r))
+cv2.imshow("Translated", timg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

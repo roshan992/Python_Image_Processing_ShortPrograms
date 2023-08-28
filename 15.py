@@ -1,0 +1,47 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+imgpath='C:\\images\\2.jpg'
+img1 = cv2.imread(imgpath, 1)
+plt.imshow(cv2.cvtColor(img1,cv2.COLOR_BGR2RGB))
+plt.title('plt.img')
+plt.xticks([])
+plt.yticks([])
+plt.show()
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.imshow('Orignal CAOLOR Image',img1)
+cv2.waitKey(0)
+b,g,r=cv2.split(img1)
+rgb_img=cv2.merge([b,g,r])
+cv2.imshow('Color Image',rgb_img)
+cv2.waitKey(0)
+cv2.imshow('Blue Componet',b)
+cv2.waitKey(0)
+cv2.imshow('Green Componet',g)
+cv2.waitKey(0)
+cv2.imshow('Red Componet',r)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+a=[]
+samplerate=20
+
+x=int(img.shape[0]/samplerate)
+y=int(img.shape[1]/samplerate)
+for i in range(0,range(0,img.shape[0],samplerate)):
+    for j in range(0,range(0,img.shape[1],samplerate)):
+        a.append(img[i][j])
+        b=np.reshape(a,(x,y))
+        bsize=b.shape
+        print(bsize)
+        cv2.imshow('Output Image',b)
+        cv2.waitKey(0)
+        cv2.destroyAllWindow('Output Image')
+        imgRsz=cv2.resize(b(nr,nc),cv2.INTER_CUBIC)
+        cv2.imshow('output Resized Image',imgRsz)
+        cv2.waitKey(0)
+        cv2.destroyAllWindow('Output resized Image')
